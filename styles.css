@@ -1,0 +1,360 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --purple: #6b00d8;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background: #111;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+}
+
+.landing-page {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.10)),
+    url("assets/landing_page_bg.jpg") center center / cover no-repeat;
+}
+
+.top-bar {
+  position: fixed;
+  z-index: 20;
+  top: var(--safe-top);
+  left: var(--safe-left);
+  right: var(--safe-right);
+  display: grid;
+  height: 72px;
+  grid-template-columns: 50px minmax(0, 1fr) 50px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+}
+
+.menu-button,
+.bag-button {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+.menu-button img {
+  display: block;
+  width: 38px;
+  height: 34px;
+  max-width: 38px;
+  max-height: 34px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.brand-heading {
+  display: flex;
+  min-width: 0;
+  height: 54px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.wavy-heading {
+  display: flex;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  color: #070707;
+  font-family: "Cooper Black", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-size: clamp(15px, 4.15vw, 18px);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  -webkit-text-stroke: 1.35px var(--purple);
+  paint-order: stroke fill;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.28));
+}
+
+.heading-letter {
+  display: inline-block;
+  flex: 0 0 auto;
+  transform:
+    translateY(var(--wave-y))
+    rotate(var(--wave-r))
+    scaleY(var(--wave-s));
+  transform-origin: center bottom;
+}
+
+.heading-space {
+  display: inline-block;
+  flex: 0 0 7px;
+}
+
+.bag-button {
+  justify-self: end;
+}
+
+.bag-body {
+  position: absolute;
+  top: 13px;
+  left: 8px;
+  width: 25px;
+  height: 23px;
+  border: 2px solid #fff;
+  border-radius: 1px;
+}
+
+.bag-handle {
+  position: absolute;
+  z-index: 1;
+  top: 6px;
+  left: 14px;
+  width: 13px;
+  height: 13px;
+  border: 2px solid #fff;
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+.bag-count {
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  font-size: 10px;
+  line-height: 1;
+  text-align: center;
+}
+
+.instagram-button {
+  position: fixed;
+  z-index: 15;
+  top: calc(var(--safe-top) + 82px);
+  left: 50%;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  transform: translateX(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.055);
+  color: rgba(255, 255, 255, 0.86);
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+  box-shadow: inset 0 0 14px rgba(255, 255, 255, 0.035);
+}
+
+.instagram-button:hover,
+.instagram-button:focus-visible {
+  border-color: rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.11);
+  color: #fff;
+}
+
+.instagram-button svg {
+  width: 29px;
+  height: 29px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.instagram-button .instagram-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
+.mission-panel {
+  position: fixed;
+  z-index: 10;
+  left: var(--safe-left);
+  bottom: var(--safe-bottom);
+  width: min(58vw, 230px);
+  min-height: 16.66svh;
+  padding: 24px 18px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.34);
+  border-right: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(3px);
+}
+
+.mission-panel p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.55;
+  text-transform: lowercase;
+}
+
+.side-menu {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: min(78vw, 310px);
+  height: 100svh;
+  padding: calc(26px + var(--safe-top)) 24px 26px;
+  background: rgba(10, 10, 10, 0.96);
+  box-shadow: 18px 0 45px rgba(0, 0, 0, 0.32);
+  transform: translateX(-105%);
+  transition: transform 280ms ease;
+}
+
+.side-menu.is-open {
+  transform: translateX(0);
+}
+
+.close-button {
+  width: 42px;
+  height: 42px;
+  margin: -8px 0 42px -10px;
+  border: 0;
+  background: transparent;
+  font-size: 38px;
+  font-weight: 200;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-nav a {
+  padding: 19px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.menu-overlay {
+  position: fixed;
+  z-index: 40;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: rgba(0, 0, 0, 0.52);
+}
+
+.menu-overlay[hidden] {
+  display: none;
+}
+
+@media (max-width: 430px) {
+  .top-bar {
+    grid-template-columns: 48px minmax(0, 1fr) 48px;
+    gap: 8px;
+    padding-inline: 10px;
+  }
+
+  .wavy-heading {
+    font-size: clamp(14px, 4vw, 17px);
+    letter-spacing: -0.045em;
+    transform: scaleX(0.98);
+  }
+
+  .heading-space {
+    flex-basis: 6px;
+  }
+}
+
+@media (max-width: 375px) {
+  .top-bar {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    gap: 6px;
+    padding-inline: 8px;
+  }
+
+  .menu-button img {
+    width: 35px;
+    height: 31px;
+  }
+
+  .wavy-heading {
+    font-size: 13px;
+    letter-spacing: -0.055em;
+    transform: scaleX(0.95);
+  }
+
+  .heading-space {
+    flex-basis: 5px;
+  }
+}
+
+@media (min-width: 700px) {
+  .landing-page {
+    width: 430px;
+    min-height: 900px;
+    margin: 24px auto;
+  }
+
+  .top-bar {
+    position: absolute;
+    width: 430px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  .instagram-button,
+  .mission-panel {
+    position: absolute;
+  }
+
+  .wavy-heading {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .side-menu {
+    transition: none;
+  }
+}

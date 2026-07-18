@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Through The Room mobile landing page">
+  <title>Through The Room</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="landing-page">
+    <header class="top-bar">
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-controls="sideMenu"
+        aria-expanded="false"
+      >
+        <img src="assets/TTRLogo.png" alt="" aria-hidden="true">
+      </button>
+
+      <a class="brand-heading" href="#" aria-label="Through The Room home">
+        <h1 class="wavy-heading" aria-label="Through The Room">
+          <span class="heading-letter" style="--wave-y:0.0px; --wave-r:1.61deg; --wave-s:1.035;">T</span>
+          <span class="heading-letter" style="--wave-y:2.25px; --wave-r:2.35deg; --wave-s:1.048;">h</span>
+          <span class="heading-letter" style="--wave-y:3.9px; --wave-r:2.46deg; --wave-s:1.06;">r</span>
+          <span class="heading-letter" style="--wave-y:4.5px; --wave-r:1.91deg; --wave-s:1.068;">o</span>
+          <span class="heading-letter" style="--wave-y:3.9px; --wave-r:0.85deg; --wave-s:1.07;">u</span>
+          <span class="heading-letter" style="--wave-y:2.25px; --wave-r:-0.44deg; --wave-s:1.065;">g</span>
+          <span class="heading-letter" style="--wave-y:0.0px; --wave-r:-1.61deg; --wave-s:1.055;">h</span>
+          <span class="heading-space" aria-hidden="true"></span>
+          <span class="heading-letter" style="--wave-y:-2.25px; --wave-r:-2.35deg; --wave-s:1.042;">T</span>
+          <span class="heading-letter" style="--wave-y:-3.9px; --wave-r:-2.46deg; --wave-s:1.03;">h</span>
+          <span class="heading-letter" style="--wave-y:-4.5px; --wave-r:-1.91deg; --wave-s:1.022;">e</span>
+          <span class="heading-space" aria-hidden="true"></span>
+          <span class="heading-letter" style="--wave-y:-3.9px; --wave-r:-0.85deg; --wave-s:1.02;">R</span>
+          <span class="heading-letter" style="--wave-y:-2.25px; --wave-r:0.44deg; --wave-s:1.025;">o</span>
+          <span class="heading-letter" style="--wave-y:-0.0px; --wave-r:1.61deg; --wave-s:1.035;">o</span>
+          <span class="heading-letter" style="--wave-y:2.25px; --wave-r:2.35deg; --wave-s:1.048;">m</span>
+        </h1>
+      </a>
+
+      <button class="bag-button" type="button" aria-label="Shopping bag, 0 items">
+        <span class="bag-handle" aria-hidden="true"></span>
+        <span class="bag-body" aria-hidden="true"></span>
+        <span class="bag-count">0</span>
+      </button>
+    </header>
+
+    <a
+      class="instagram-button"
+      href="https://www.instagram.com/throughtheroom?igsh=eTV3cHYxdTh2Z2xp"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Open Through The Room on Instagram"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+        <circle cx="12" cy="12" r="4.25"></circle>
+        <circle class="instagram-dot" cx="17.4" cy="6.7" r="1"></circle>
+      </svg>
+    </a>
+
+    <aside class="side-menu" id="sideMenu" aria-hidden="true">
+      <button class="close-button" id="closeButton" type="button" aria-label="Close navigation menu">
+        <span aria-hidden="true">×</span>
+      </button>
+
+      <nav class="side-nav" aria-label="Primary navigation">
+        <a href="#">Product</a>
+        <a href="#">Gallery</a>
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </nav>
+    </aside>
+
+    <button
+      class="menu-overlay"
+      id="menuOverlay"
+      type="button"
+      aria-label="Close navigation menu"
+      hidden
+    ></button>
+
+    <section class="mission-panel" aria-label="Mission statement placeholder">
+      <p>
+        mission statement mission statement mission statement mission statement
+        mission statement mission statement mission statement mission statement
+      </p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
