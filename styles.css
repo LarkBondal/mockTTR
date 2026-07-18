@@ -7,7 +7,6 @@
   --safe-left: env(safe-area-inset-left, 0px);
   --safe-right: env(safe-area-inset-right, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
-  --purple: #6b00d8;
 }
 
 html,
@@ -45,6 +44,10 @@ button {
     url("assets/landing_page_bg.jpg") center center / cover no-repeat;
 }
 
+/*
+  Three fixed header columns keep the Buddha button, TTR heading,
+  and bag icon aligned without allowing any asset to fill the screen.
+*/
 .top-bar {
   position: fixed;
   z-index: 20;
@@ -52,37 +55,37 @@ button {
   left: var(--safe-left);
   right: var(--safe-right);
   display: grid;
-  height: 72px;
-  grid-template-columns: 50px minmax(0, 1fr) 50px;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
+  height: 88px;
+  grid-template-columns: 52px minmax(0, 1fr) 52px;
+  align-items: start;
+  gap: 10px;
+  padding: 8px 12px 0;
 }
 
-.menu-button,
+.drawer-button,
 .bag-button {
   position: relative;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   margin: 0;
   border: 0;
   background: transparent;
   cursor: pointer;
 }
 
-.menu-button {
+.drawer-button {
   display: grid;
   place-items: center;
   padding: 0;
   overflow: hidden;
 }
 
-.menu-button img {
+.drawer-button img {
   display: block;
-  width: 38px;
-  height: 34px;
-  max-width: 38px;
-  max-height: 34px;
+  width: 42px;
+  height: 42px;
+  max-width: 42px;
+  max-height: 42px;
   object-fit: contain;
   object-position: center;
 }
@@ -90,47 +93,26 @@ button {
 .brand-heading {
   display: flex;
   min-width: 0;
-  height: 54px;
-  align-items: center;
+  height: 78px;
+  align-items: flex-start;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
   text-decoration: none;
 }
 
-.wavy-heading {
-  display: flex;
-  min-width: 0;
+.brand-heading img {
+  display: block;
+  width: auto;
+  height: 66px;
   max-width: 100%;
-  margin: 0;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  color: #070707;
-  font-family: "Cooper Black", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
-  font-size: clamp(15px, 4.15vw, 18px);
-  font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 1;
-  -webkit-text-stroke: 1.35px var(--purple);
-  paint-order: stroke fill;
-  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.28));
+  object-fit: contain;
+  object-position: center top;
 }
 
-.heading-letter {
-  display: inline-block;
-  flex: 0 0 auto;
-  transform:
-    translateY(var(--wave-y))
-    rotate(var(--wave-r))
-    scaleY(var(--wave-s));
-  transform-origin: center bottom;
-}
-
-.heading-space {
-  display: inline-block;
-  flex: 0 0 7px;
-}
-
+/*
+  The heading intentionally extends lower than the two corner buttons.
+  This gives the original TTR artwork the visual weight of an h2.
+*/
 .bag-button {
   justify-self: end;
 }
@@ -138,7 +120,7 @@ button {
 .bag-body {
   position: absolute;
   top: 13px;
-  left: 8px;
+  left: 9px;
   width: 25px;
   height: 23px;
   border: 2px solid #fff;
@@ -149,7 +131,7 @@ button {
   position: absolute;
   z-index: 1;
   top: 6px;
-  left: 14px;
+  left: 15px;
   width: 13px;
   height: 13px;
   border: 2px solid #fff;
@@ -171,7 +153,7 @@ button {
 .instagram-button {
   position: fixed;
   z-index: 15;
-  top: calc(var(--safe-top) + 82px);
+  top: calc(var(--safe-top) + 96px);
   left: 50%;
   display: grid;
   width: 58px;
@@ -267,7 +249,9 @@ button {
   padding: 19px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.22);
   color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
+  font-weight: 400;
   letter-spacing: 0.03em;
   text-decoration: none;
   text-transform: uppercase;
@@ -289,42 +273,34 @@ button {
 
 @media (max-width: 430px) {
   .top-bar {
-    grid-template-columns: 48px minmax(0, 1fr) 48px;
+    grid-template-columns: 50px minmax(0, 1fr) 50px;
     gap: 8px;
     padding-inline: 10px;
   }
 
-  .wavy-heading {
-    font-size: clamp(14px, 4vw, 17px);
-    letter-spacing: -0.045em;
-    transform: scaleX(0.98);
+  .brand-heading img {
+    height: 64px;
   }
 
-  .heading-space {
-    flex-basis: 6px;
+  .instagram-button {
+    top: calc(var(--safe-top) + 94px);
   }
 }
 
 @media (max-width: 375px) {
   .top-bar {
-    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    grid-template-columns: 46px minmax(0, 1fr) 46px;
     gap: 6px;
     padding-inline: 8px;
   }
 
-  .menu-button img {
-    width: 35px;
-    height: 31px;
+  .drawer-button img {
+    width: 38px;
+    height: 38px;
   }
 
-  .wavy-heading {
-    font-size: 13px;
-    letter-spacing: -0.055em;
-    transform: scaleX(0.95);
-  }
-
-  .heading-space {
-    flex-basis: 5px;
+  .brand-heading img {
+    height: 58px;
   }
 }
 
@@ -346,10 +322,6 @@ button {
   .instagram-button,
   .mission-panel {
     position: absolute;
-  }
-
-  .wavy-heading {
-    font-size: 18px;
   }
 }
 
