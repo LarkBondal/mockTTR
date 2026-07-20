@@ -40,26 +40,23 @@ button {
   overflow: hidden;
   isolation: isolate;
   background:
-    linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.10)),
+    linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08)),
     url("assets/landing_page_bg.jpg") center center / cover no-repeat;
 }
 
-/*
-  Three fixed header columns keep the Buddha button, TTR heading,
-  and bag icon aligned without allowing any asset to fill the screen.
-*/
-.top-bar {
+/* Fixed left / center / right positions at the top. */
+.top-controls {
   position: fixed;
   z-index: 20;
   top: var(--safe-top);
   left: var(--safe-left);
   right: var(--safe-right);
   display: grid;
-  height: 88px;
+  height: 76px;
   grid-template-columns: 52px minmax(0, 1fr) 52px;
-  align-items: start;
+  align-items: center;
   gap: 10px;
-  padding: 8px 12px 0;
+  padding: 8px 12px;
 }
 
 .drawer-button,
@@ -90,29 +87,41 @@ button {
   object-position: center;
 }
 
-.brand-heading {
-  display: flex;
-  min-width: 0;
-  height: 78px;
-  align-items: flex-start;
-  justify-content: center;
-  overflow: visible;
+.instagram-button {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-self: center;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.055);
+  color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
+  backdrop-filter: blur(4px);
+  box-shadow: inset 0 0 14px rgba(255, 255, 255, 0.035);
 }
 
-.brand-heading img {
-  display: block;
-  width: auto;
-  height: 66px;
-  max-width: 100%;
-  object-fit: contain;
-  object-position: center top;
+.instagram-button:hover,
+.instagram-button:focus-visible {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.11);
+  color: #fff;
 }
 
-/*
-  The heading intentionally extends lower than the two corner buttons.
-  This gives the original TTR artwork the visual weight of an h2.
-*/
+.instagram-button svg {
+  width: 29px;
+  height: 29px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.instagram-button .instagram-dot {
+  fill: currentColor;
+  stroke: none;
+}
+
 .bag-button {
   justify-self: end;
 }
@@ -150,44 +159,47 @@ button {
   text-align: center;
 }
 
-.instagram-button {
+/*
+  The original TTR artwork now occupies the open wall space:
+  below the torn fabric and above/between the lower brick partitions.
+*/
+.center-brand {
   position: fixed;
-  z-index: 15;
-  top: calc(var(--safe-top) + 96px);
+  z-index: 12;
+  top: 24svh;
   left: 50%;
-  display: grid;
-  width: 58px;
-  height: 58px;
-  place-items: center;
+  display: flex;
+  width: min(70vw, 340px);
+  height: 34svh;
+  align-items: center;
+  justify-content: center;
   transform: translateX(-50%);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.055);
-  color: rgba(255, 255, 255, 0.86);
-  text-decoration: none;
-  backdrop-filter: blur(4px);
-  box-shadow: inset 0 0 14px rgba(255, 255, 255, 0.035);
+  pointer-events: none;
 }
 
-.instagram-button:hover,
-.instagram-button:focus-visible {
-  border-color: rgba(255, 255, 255, 0.48);
-  background: rgba(255, 255, 255, 0.11);
-  color: #fff;
+.center-brand img {
+  display: block;
+  width: min(100%, 300px);
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.18));
 }
 
-.instagram-button svg {
-  width: 29px;
-  height: 29px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
+.mission-panel {
+  position: fixed;
+  z-index: 10;
+  left: var(--safe-left);
+  bottom: var(--safe-bottom);
+  width: min(58vw, 230px);
+  min-height: 16.66svh;
+  padding: 24px 18px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.34);
+  border-right: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(3px);
 }
 
-.instagram-button .instagram-dot {
-  fill: currentColor;
-  stroke: none;
-}
 
 .side-menu {
   position: fixed;
@@ -251,23 +263,25 @@ button {
 }
 
 @media (max-width: 430px) {
-  .top-bar {
+  .top-controls {
     grid-template-columns: 50px minmax(0, 1fr) 50px;
     gap: 8px;
     padding-inline: 10px;
   }
 
-  .brand-heading img {
-    height: 64px;
+  .center-brand {
+    top: 23svh;
+    width: 74vw;
+    height: 35svh;
   }
 
-  .instagram-button {
-    top: calc(var(--safe-top) + 94px);
+  .center-brand img {
+    width: min(100%, 285px);
   }
 }
 
 @media (max-width: 375px) {
-  .top-bar {
+  .top-controls {
     grid-template-columns: 46px minmax(0, 1fr) 46px;
     gap: 6px;
     padding-inline: 8px;
@@ -278,8 +292,12 @@ button {
     height: 38px;
   }
 
-  .brand-heading img {
-    height: 58px;
+  .center-brand {
+    width: 76vw;
+  }
+
+  .center-brand img {
+    width: min(100%, 255px);
   }
 }
 
@@ -290,7 +308,7 @@ button {
     margin: 24px auto;
   }
 
-  .top-bar {
+  .top-controls {
     position: absolute;
     width: 430px;
     left: 50%;
@@ -298,7 +316,7 @@ button {
     transform: translateX(-50%);
   }
 
-  .instagram-button,
+  .center-brand,
   .mission-panel {
     position: absolute;
   }

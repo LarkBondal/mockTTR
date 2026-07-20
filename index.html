@@ -6,16 +6,13 @@
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   >
-  <meta
-    name="description"
-    content="Through The Room mobile landing page"
-  >
+  <meta name="description" content="Through The Room landing page">
   <title>Through The Room</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
   <main class="landing-page">
-    <header class="top-bar">
+    <header class="top-controls">
       <button
         class="drawer-button"
         id="menuButton"
@@ -24,44 +21,33 @@
         aria-controls="sideMenu"
         aria-expanded="false"
       >
-        <img
-          src="assets/BuddhaLogo.png"
-          alt=""
-          aria-hidden="true"
-        >
+        <img src="assets/BuddhaLogo.png?v=6" alt="" aria-hidden="true">
       </button>
 
-      <a class="brand-heading" href="#" aria-label="Through The Room home">
-        <img
-          src="assets/TTRLogo.png"
-          alt="Through The Room"
-        >
+      <a
+        class="instagram-button"
+        href="https://www.instagram.com/throughtheroom?igsh=eTV3cHYxdTh2Z2xp"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open Through The Room on Instagram"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4.25"></circle>
+          <circle class="instagram-dot" cx="17.4" cy="6.7" r="1"></circle>
+        </svg>
       </a>
 
-      <button
-        class="bag-button"
-        type="button"
-        aria-label="Shopping bag, 0 items"
-      >
+      <button class="bag-button" type="button" aria-label="Shopping bag, 0 items">
         <span class="bag-handle" aria-hidden="true"></span>
         <span class="bag-body" aria-hidden="true"></span>
         <span class="bag-count">0</span>
       </button>
     </header>
 
-    <a
-      class="instagram-button"
-      href="https://www.instagram.com/throughtheroom?igsh=eTV3cHYxdTh2Z2xp"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Open Through The Room on Instagram"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-        <circle cx="12" cy="12" r="4.25"></circle>
-        <circle class="instagram-dot" cx="17.4" cy="6.7" r="1"></circle>
-      </svg>
-    </a>
+    <section class="center-brand" aria-label="Through The Room">
+      <img src="assets/TTRLogo.png?v=6" alt="Through The Room">
+    </section>
 
     <aside class="side-menu" id="sideMenu" aria-hidden="true">
       <button
@@ -87,10 +73,8 @@
       aria-label="Close navigation menu"
       hidden
     ></button>
-
-
   </main>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>
